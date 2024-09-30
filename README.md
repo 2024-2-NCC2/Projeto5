@@ -1,5 +1,7 @@
 # FECAP - Fundação de Comércio Álvares Penteado
 
+# FINAQ
+
 ![Logo do Projeto](./logo.jpeg)
 
 ## Projeto 5
@@ -13,13 +15,6 @@
 - Kamila Santos (24026235)
 - Lavinia Pires (24026315)
 
----
-
-## Descrição
-
-Adicione uma breve descrição do seu projeto aqui.
-
----
 
 ## Imagem da Home Page
 
