@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", function() {
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        // Validação de senha
+        
         if (passwordInput.value !== confirmPasswordInput.value) {
             alert("As senhas não coincidem. Tente novamente.");
             return;
         }
 
-        // Validação de e-mail (usando regex)
+        
         const emailInput = form.querySelector('input[type="email"]');
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(emailInput.value)) {
@@ -20,13 +20,13 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        // Se as validações passarem
+        
         alert("Cadastro realizado com sucesso!");
-        form.reset(); // Limpa o formulário
-        window.location.href = form.action; // Redireciona para a página de sucesso
+        form.reset(); 
+        window.location.href = form.action; 
     });
 
-    // Validação em tempo real de senha e confirmação de senha
+   
     confirmPasswordInput.addEventListener('input', function() {
         if (passwordInput.value !== confirmPasswordInput.value) {
             confirmPasswordInput.setCustomValidity("As senhas não coincidem.");
