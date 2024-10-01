@@ -22,7 +22,8 @@
 
 
 
-Estrutura de Diretórios│
+Estrutura de Diretórios
+│
 ├── /frontend                # Diretório principal do frontend
 │   ├── /img                 # Imagens do frontend (ícones de redes sociais, logotipo)
 │   │   ├── facebook.png
