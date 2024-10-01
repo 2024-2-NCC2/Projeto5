@@ -91,7 +91,7 @@ Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
 
 Node.js
 npm (geralmente instalado junto com o Node.js)
-
+```
 # Instalando as dependências
 
 Após instalar as ferramentas necessárias, siga as instruções abaixo para instalar as dependências do projeto:
