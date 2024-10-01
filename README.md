@@ -10,18 +10,19 @@
 
 ## Integrantes: <a href="www.linkedin.com/in/flavia-costa-157aa2191">Flavia da Costa</a>, <a href="https://www.linkedin.com/in/guilhermy-lisboa-garcia-385656223/">Guilhermy Garcia</a>, <a href="https://www.linkedin.com/in/gustavo-bernardi-r/">Gustavo Bernardi</a>, <a href="https://www.linkedin.com/in/kamila-santos-695a78261/">Kamila Santos</a>, <a href="https://www.linkedin.com/in/lavinia-pireslp/">Lavínia Pires</a>
 
-## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Dr. Victor Von Doom</a>, <a href="https://www.linkedin.com/in/dolemes/">David Lemes</a>, <a href="https://www.linkedin.com/in/francisco-escobar/">Francisco Escobar</a>, <a href="https://www.linkedin.com/in/katia-bossi/">Katia Bossi</a>.
+## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Victor Rosetti</a>, <a href="https://www.linkedin.com/in/dolemes/">David Lemes</a>, <a href="https://www.linkedin.com/in/francisco-escobar/">Francisco Escobar</a>, <a href="https://www.linkedin.com/in/katia-bossi/">Katia Bossi</a>.
 
 ## Descrição
 
 <p align="center">
 <img src="./imagens/logo.jpeg" alt="logo do site" border="0">
- <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/© 2">CC BY-NC-ND 4.0</a>
+ Site By Finaq <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/© 2">CC BY-NC-ND 4.0</a>
+
+
+
 </p>
 
 Este projeto de organização financeira foi criado para ajudar as pessoas a desenvolverem uma consciência financeira sólida, oferecendo ferramentas para planejar e gerenciar suas finanças de forma eficaz. A plataforma permite que os usuários acompanhem suas despesas, definam metas financeiras e fiquem atualizados sobre as tendências da economia global. Dessa forma, o site promove um entendimento mais profundo sobre a relação entre a economia pessoal e a economia em geral, incentivando práticas financeiras saudáveis e estratégias de crescimento.
-
-
 <br><br>
 Nossa missão é transformar a forma como as pessoas enxergam e administram seu dinheiro, proporcionando uma visão clara e objetiva para alcançar a prosperidade. Acreditamos que, por meio do planejamento financeiro estratégico, é possível promover atividades de alto valor agregado, enfrentar desafios econômicos de maneira criativa e contribuir para o crescimento contínuo e saudável do PIB, elevando a produtividade por meio da diversificação das economias.
 <br><br>
@@ -123,3 +124,4 @@ Linux
 Este trabalho está licenciado sob CC BY-NC-ND 4.0. Para ver uma cópia desta licença, visite https://creativecommons.org/licenses/by-nc-nd/4.0/© 2 por F
 
 ## 🎓 Referências
+
