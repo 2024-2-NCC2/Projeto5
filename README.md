@@ -84,44 +84,47 @@ Encontre o index.html na pasta executáveis e execute-o como uma página WEB. Ou
 
 ## 💻 Configuração para Desenvolvimento
 
-Para configurar o ambiente de desenvolvimento e rodar o projeto, siga os passos abaixo:
+**Para configurar o ambiente de desenvolvimento e rodar o projeto, siga os passos abaixo:**
 
 Pré-requisitos
-Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:
+
+**Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:**
 
 Node.js
 npm (geralmente instalado junto com o Node.js)
 
-Instalando as dependências
+**Instalando as dependências:**
 
 Após instalar as ferramentas necessárias, siga as instruções abaixo para instalar as dependências do projeto:
 
-Clone este repositório
+**Clone este repositório**
 git clone https://github.com/2024-2-NCC2/Projeto5.git
 
-Acesse a pasta do projeto
+**Acesse a pasta do projeto**
 cd projeto
 
-Instale as dependências do projeto
+**Instale as dependências do projeto**
 npm install
 
-Rodando a aplicação :
+
+**Rodando a aplicação :** 
 
  npm start
 
-Para executar o test-suite automatizado e verificar se o projeto está funcionando corretamente, utilize o comando:
+**Para executar o test-suite automatizado e verificar se o projeto está funcionando corretamente, utilize o comando:**
 
 npm test
 
 Observações para múltiplas plataformas
-Este projeto foi testado e é compatível com as seguintes plataformas:
+
+**Este projeto foi testado e é compatível com as seguintes plataformas:**
 
 Windows
 MacOS
 Linux
 
 
-```
+
 
 ## 📋 Licença/License
 
