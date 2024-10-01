@@ -69,7 +69,10 @@ Projeto5
 │   ├── .gitignore           # Arquivo gitignore
 │   ├── package-lock.json     # Dependências do projeto
 │   ├── package.json          # Arquivo de configuração do projeto e dependências
-│   └── README.md             # Arquivo de documentação (você está aqui) -->
+│   └── README.md             # Arquivo de documentação (você está aqui).
+
+
+```
 
 ## 🛠 Instalação
 
