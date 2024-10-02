@@ -8,7 +8,7 @@
 
 ## Grupo 5
 
-## Integrantes: <a href="www.linkedin.com/in/flavia-costa-157aa2191">Flavia da Costa</a>, <a href="https://www.linkedin.com/in/guilhermy-lisboa-garcia-385656223/">Guilhermy Garcia</a>, <a href="https://www.linkedin.com/in/gustavo-bernardi-r/">Gustavo Bernardi</a>, <a href="https://www.linkedin.com/in/kamila-santos-695a78261/">Kamila Santos</a>, <a href="https://www.linkedin.com/in/lavinia-pireslp/">Lavínia Pires</a>
+## Integrantes: <a href="https://www.linkedin.com/in/flavia-costa-157aa2191/">Flavia da Costa</a>, <a href="https://www.linkedin.com/in/guilhermy-lisboa-garcia-385656223/">Guilhermy Garcia</a>, <a href="https://www.linkedin.com/in/gustavo-bernardi-r/">Gustavo Bernardi</a>, <a href="https://www.linkedin.com/in/kamila-santos-695a78261/">Kamila Santos</a>, <a href="https://www.linkedin.com/in/lavinia-pireslp/">Lavínia Pires</a>
 
 ## Professores Orientadores: <a href="https://www.linkedin.com/in/victorbarq/">Victor Rosetti</a>, <a href="https://www.linkedin.com/in/dolemes/">David Lemes</a>, <a href="https://www.linkedin.com/in/francisco-escobar/">Francisco Escobar</a>, <a href="https://www.linkedin.com/in/katia-bossi/">Katia Bossi</a>.
 
