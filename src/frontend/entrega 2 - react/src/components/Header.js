@@ -1,11 +1,10 @@
 import React from 'react';
-import './Header.css'; // Importa o CSS específico para o Header
-
+import './Header.css'; 
 function Header() {
   return (
     <header className="header">
       <div className="logo">
-        <img src="/logo.jpeg" alt="Sua Logo" /> {/* Certifique-se de ter o arquivo logo.png na pasta public */}
+        <img src="/logo.jpeg" alt="Sua Logo" /> 
       </div>
       <nav>
         <ul className="nav-links">
