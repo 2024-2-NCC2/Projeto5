@@ -27,29 +27,19 @@ const Pillar = styled.div`
 `;
 
 const Title = styled.h1`
-  color: #ffffff;
+  color: black;
 `;
 
 const SubTitle = styled.h2`
-  color: #ffffff;
+  color: black;
 `;
 
 const PillarTitle = styled.h3`
-  color: #ffffff;
+  color: black;
 `;
 
 const Paragraph = styled.p`
-  color: #ffffff;
-`;
-
-const ImageWrapper = styled.div`
-  margin: 20px 0;
-`;
-
-const Image = styled.img`
-  width: 200px;
-  height: auto;
-  border-radius: 10px;
+  color: black;
 `;
 
 function AboutUs() {
@@ -62,10 +52,6 @@ function AboutUs() {
       <Paragraph>
         Oferecemos orientação financeira personalizada para que você possa alcançar seus objetivos com segurança e confiança.
       </Paragraph>
-
-      <ImageWrapper>
-        <Image src="/img/bg.jpg" alt="Descrição da imagem" />
-      </ImageWrapper>
 
       <SubTitle>Nossos Pilares</SubTitle>
       <PillarsContainer>
