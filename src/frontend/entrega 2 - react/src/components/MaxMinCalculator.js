@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+// src/pages/MaxMinCalculator.js
+>>>>>>> a07bc35780239134c3319e64cdcb48d3f6208ddf
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
