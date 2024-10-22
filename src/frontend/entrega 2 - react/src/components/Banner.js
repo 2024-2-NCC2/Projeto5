@@ -27,7 +27,7 @@ const BannerContainer = styled.div`
     z-index: 1;
   }
 
-  h1, p {
+  h1, p, h2 {
     z-index: 2; 
   }
 `;
@@ -47,14 +47,30 @@ const Paragraph = styled.p`
   margin: 0 auto; 
 `;
 
+const Subtitle = styled.h2`
+  font-size: 2rem;
+  color: black; 
+  margin-bottom: 10px; 
+`;
 
-function Banner({ id, texto, descricao }) {
+function Banner({ id, texto, texto2, descricao }) {
   return (
     <BannerContainer id={id}>
       <Title>{texto}</Title>
+      <Subtitle >{texto2}</Subtitle > {/* Mantendo o uso de texto2 */}
       <Paragraph>{descricao}</Paragraph>
     </BannerContainer>
   );
 }
+
+// function Banner({ id, texto, descricao }) {
+//   return (
+//     <BannerContainer id={id}>
+//       <Title>{texto}</Title>
+//       <h2>{texto2}</h2>
+//       <Paragraph>{descricao}</Paragraph>
+//     </BannerContainer>
+//   );
+// }
 
 export default Banner;
