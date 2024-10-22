@@ -9,6 +9,8 @@ import News from './components/News';
 import AboutUs from './components/AboutUs'; 
 import Sucess from './components/Sucess';
 import styled from 'styled-components';
+import InvestorQuiz from './components/InvestorQuiz';
+import MaxMinCalculator from './components/MaxMinCalculator';
 
 const AppContainer = styled.div`
   display: flex;
@@ -33,6 +35,8 @@ function App() {
             <Route path="/noticias" element={<News />} /> 
             <Route path="/sobre-nos" element={<AboutUs />} /> 
             <Route path="/sucesso" element={<Sucess />} /> 
+            <Route path="/quiz" element={<InvestorQuiz />}/>
+            <Route path="/calculadora" element={<MaxMinCalculator />} />
           </Routes>
         </main>
         <Footer />

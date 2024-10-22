@@ -9,42 +9,41 @@ const HeroContainer = styled.section`
   padding: 2rem 2%;
   flex-direction: flex; 
   text-align: center; 
-  min-height: 100vh; /* Garante que a seção ocupe a altura total da tela */
-  background: linear-gradient(130deg, #002D21 15%, #9BDDC1 58%, #027553 80%); /* Gradiente como fundo */
+  min-height: 100vh; 
+  background: linear-gradient(130deg, #002D21 15%, #9BDDC1 58%, #027553 80%); 
   color: white;
 
 `;
 
 const Content = styled.div`
-  margin-bottom: 2rem; /* Adiciona espaço abaixo do conteúdo */
+  margin-bottom: 2rem; 
 `;
 
 const Heading = styled.h1`
-  font-size: 2.5rem; /* Tamanho do texto principal */
-  margin-bottom: 1rem; /* Espaço abaixo do título */
+  font-size: 2.5rem; 
+  margin-bottom: 1rem; 
 
   @media (max-width: 768px) {
-    font-size: 2rem; /* Ajusta o tamanho para telas menores */
+    font-size: 2rem; 
   }
 
   @media (max-width: 480px) {
-    font-size: 1.5rem; /* Ajusta ainda mais para telas pequenas */
+    font-size: 1.5rem; 
   }
 `;
 
 const Paragraph = styled.p`
-  font-size: 1.5rem; /* Tamanho do texto do parágrafo */
-  line-height: 1.6; /* Espaçamento entre linhas */
-  max-width: 600px; /* Limita a largura máxima do parágrafo */
-  margin: 0 auto; /* Centraliza o parágrafo */
+  font-size: 1.5rem; 
+  line-height: 1.6; 
+  max-width: 600px; 
+  margin: 0 auto; 
   
   @media (max-width: 768px) {
-    font-size: 1.2rem; /* Ajusta o tamanho para telas menores */
+    font-size: 1.2rem; 
   }
 
   @media (max-width: 480px) {
-    font-size: 1rem; /* Ajusta ainda mais para telas pequenas */
-  }
+    font-size: 1rem; 
 `;
 
 const FormContainer = styled.div`

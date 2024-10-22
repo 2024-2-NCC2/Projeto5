@@ -22,17 +22,17 @@ const Nav = styled.nav`
 `;
 
 const NavLinks = styled.ul`
-  margin-left: -1000px;
+  margin-left: -800px;
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 40px;
 `;
 
 const NavLink = styled.a`
   color: white;
   text-decoration: none;
-  font-size: 22px;
+  font-size: 26px;
   padding: 5px 10px;
   transition: color 0.3s, background-color 0.3s;
 

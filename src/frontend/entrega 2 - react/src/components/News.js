@@ -1,29 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import Banner from './Banner';
 
 const Container = styled.div`
-  padding: 20px;
   text-align: center;
   min-height: 100vh;
   color: #004f42;
+  background-color: #ddd; 
 `;
 
-const Title = styled.h1`
-  font-size: 2rem;
-  color: #004f42;
-`;
-
-const Paragraph = styled.p`
-  font-size: 1.2rem;
-  color: #333;
-`;
 
 function News() {
   return (
     <Container>
-      <Title>Notícias</Title>
-      <Paragraph>Acompanhe as últimas notícias sobre finanças e investimentos.</Paragraph>
-      <Paragraph>Fique por dentro das atualizações e insights que podem ajudar você a gerenciar melhor suas finanças.</Paragraph>
+      <Banner
+       texto= "Negócios Globais, Política e Muito Mais!"
+       descricao= "Confira as últimas notícias financeiras globais, com atualizações sobre mercados, economia e investimentos. Acompanhe as tendências econômicas que impactam o cenário global."/>
     </Container>
   );
 }
