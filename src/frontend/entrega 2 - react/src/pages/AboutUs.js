@@ -15,7 +15,7 @@ const Container = styled.div`
 `;
 
 const SeparatedSection = styled.div`
-  margin-bottom: 10rem; /* Espaçamento entre as seções */
+  margin-bottom: 10rem; 
 `;
 
 function AboutUs () {

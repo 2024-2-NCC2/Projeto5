@@ -63,14 +63,5 @@ function Banner({ id, texto, texto2, descricao }) {
   );
 }
 
-// function Banner({ id, texto, descricao }) {
-//   return (
-//     <BannerContainer id={id}>
-//       <Title>{texto}</Title>
-//       <h2>{texto2}</h2>
-//       <Paragraph>{descricao}</Paragraph>
-//     </BannerContainer>
-//   );
-// }
 
 export default Banner;
