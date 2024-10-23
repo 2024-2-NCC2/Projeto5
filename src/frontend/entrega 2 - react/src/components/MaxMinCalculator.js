@@ -49,6 +49,23 @@ const Result = styled.div`
   color: #333;
 `;
 
+const Explanation = styled.p`
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #555;
+`;
+
+const Discrimination = styled.div`
+  text-align: left; 
+  margin-top: 10px;
+  
+`;
+
+const DiscriminationItem = styled.p`
+  margin: 5px 0; /* Espaçamento entre itens */
+  font-size: 0.9rem; /* Tamanho do texto da discriminação */
+`;
+
 function MaxMinCalculator() {
   const [budget, setBudget] = useState('');
   const [expenses, setExpenses] = useState('');
@@ -73,7 +90,7 @@ function MaxMinCalculator() {
       leisure: Math.min(remainingBudget * 0.1, recommendations.leisure.max),
     };
 
-    setResults(optimizedSpending);
+    setResults({ optimizedSpending, budgetAmount, fixedExpenses, savingsAmount, remainingBudget });
   };
 
   const handleClear = () => {
@@ -108,10 +125,28 @@ function MaxMinCalculator() {
         {results && (
           <Result>
             <p>Gastos Sugeridos:</p>
-            <p>Alimentação: R$ {results.food.toFixed(2)}</p>
-            <p>Transporte: R$ {results.transport.toFixed(2)}</p>
-            <p>Lazer: R$ {results.leisure.toFixed(2)}</p>
-            <p>Poupança (10%): R$ {(budget * 0.1).toFixed(2)}</p> {/* Exibe o valor da poupança */}
+            <p>Alimentação: R$ {results.optimizedSpending.food.toFixed(2)}</p>
+            <Explanation>
+              Sugerimos que você destine até 20% do seu orçamento para alimentação. O valor sugerido foi baseado em suas despesas fixas e na necessidade de manter uma boa nutrição.
+            </Explanation>
+            <Discrimination>
+              <DiscriminationItem>Orçamento Total: R$ {results.budgetAmount.toFixed(2)}</DiscriminationItem>
+              <DiscriminationItem>Despesas Fixas: R$ {results.fixedExpenses.toFixed(2)}</DiscriminationItem>
+              <DiscriminationItem>Poupança (10%): R$ {results.savingsAmount.toFixed(2)}</DiscriminationItem>
+              <DiscriminationItem>Orçamento Restante: R$ {results.remainingBudget.toFixed(2)}</DiscriminationItem>
+            </Discrimination>
+            <p>Transporte: R$ {results.optimizedSpending.transport.toFixed(2)}</p>
+            <Explanation>
+              Para transporte, recomenda-se alocar até 15% do seu orçamento. O valor sugerido aqui visa minimizar custos enquanto mantém eficiência nos deslocamentos diários.
+            </Explanation>
+            <p>Lazer: R$ {results.optimizedSpending.leisure.toFixed(2)}</p>
+            <Explanation>
+              É importante reservar até 10% do orçamento para lazer, evitando que essa categoria ultrapasse limites que possam comprometer outros gastos essenciais.
+            </Explanation>
+            <p>Poupança (10%): R$ {(results.budgetAmount * 0.1).toFixed(2)}</p>
+            <Explanation>
+              Recomendamos que pelo menos 10% do orçamento seja destinado à poupança ou investimentos, assegurando um planejamento financeiro saudável a longo prazo.
+            </Explanation>
           </Result>
         )}
       </Section>

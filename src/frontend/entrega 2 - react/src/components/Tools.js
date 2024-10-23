@@ -63,7 +63,7 @@ function Tools() {
       <Section>
         <SubTitle>1. Calculadora de Máximos e Mínimos</SubTitle>
         <ToolCard>
-          <Paragraph>Utilize nossa calculadora para Otmização de Gastos ou Redução de Dívidas.</Paragraph>
+          <Paragraph>Utilize nossa calculadora para Otimização de Gastos ou Redução de Dívidas.</Paragraph>
           <ToolButton href="/calculadora">Ir para a Calculadora</ToolButton>
         </ToolCard>
       </Section>
@@ -79,8 +79,8 @@ function Tools() {
       <Section>
         <SubTitle>3. Quiz Perfil de Investidor</SubTitle>
         <ToolCard>
-          <Paragraph>Faça aqui seu quiz e descubra seu perfil de investidor</Paragraph>
-          <ToolButton href="/quiz">Faça Aqui</ToolButton>
+          <Paragraph>Faça aqui seu quiz e descubra seu perfil de investidor.</Paragraph>
+          <ToolButton href="/quiz">Teste seu Perfil</ToolButton>
         </ToolCard>
       </Section>
     </Container>

@@ -99,7 +99,7 @@ function Tools() {
             <Paragraph>
               Permita alinhar expectativas e objetivos financeiros, garantindo decisões mais seguras e personalizadas.
             </Paragraph>
-            <ToolButton href="/quiz">FAÇA AQUI</ToolButton>
+            <ToolButton href="/quiz">Quiz</ToolButton>
           </Content>
           <ImageContainer>
             <img src={ferramentas3} alt="Imagem ilustrativa sobre investimento"  className="image-1"/>
@@ -109,12 +109,12 @@ function Tools() {
       <Section>
         <ToolCard reverse={true}>
           <Content>
-            <SubTitle>BAIXE SUA PLANILHA PERSONALIZADA!</SubTitle>
+            <SubTitle>BAIXE SUA PLANILHA E PERSONALIZE!</SubTitle>
             <Paragraph>
               Organize suas finanças de forma prática com nossa planilha personalizada e fácil de usar.
             </Paragraph>
-            <ToolButton href="/quiz">BAIXAR PLANILHA</ToolButton>
-          </Content>
+            <ToolButton href="/planilha-controle">Baixar</ToolButton>
+          </Content>  
           <ImageContainer>
             <img src={ferramentas2} alt="Imagem ilustrativa sobre planilha" className="image-2" />
           </ImageContainer>
@@ -127,7 +127,7 @@ function Tools() {
             <Paragraph>
               Utilize nossa calculadora para Otimização de Gastos ou Redução de Dívidas.
             </Paragraph>
-            <ToolButton href="/quiz">ENTER</ToolButton>
+            <ToolButton href="/calculadora">Calculadora</ToolButton>
           </Content>
           <ImageContainer>
             <img src={ferramentas} alt="Imagem ilustrativa sobre a calculadora" className="image-3"/>
