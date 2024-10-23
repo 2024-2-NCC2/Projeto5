@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import Pilares from '../components/Pilares';
 import Objetivo from '../components/Objetivo';
 import Botao from '../components/Button';
-
-
 import Banner from '../components/Banner';
 
 const Container = styled.div`

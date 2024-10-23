@@ -6,7 +6,7 @@ const Container = styled.div`
   text-align: center;
   min-height: 100vh;
   color: #004f42;
-  background-color: #ddd; 
+  background-color: #f5f5f5; 
 `;
 
 
@@ -14,7 +14,7 @@ function News() {
   return (
     <Container>
       <Banner
-       texto= "Negócios Globais, Política e Muito Mais!"
+       texto= "NEGÓCIOS GLOBAIS, POLÍTICA E MUITO MAIS!"
        descricao= "Confira as últimas notícias financeiras globais, com atualizações sobre mercados, economia e investimentos. Acompanhe as tendências econômicas que impactam o cenário global."/>
     </Container>
   );

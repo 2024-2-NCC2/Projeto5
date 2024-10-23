@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import Banner from '../components/Banner';
+import ferramentas3 from '../img/ferramentas3.jpeg';
+import ferramentas from '../img/ferramentas.jpeg';
+import ferramentas2 from '../img/ferramentas2.png';
 
 const Container = styled.div`
-  padding: 20px;
   text-align: center;
   min-height: 100vh;
   color: #004f42;
-`;
-
-const Title = styled.h1`
-  font-size: 2.5rem; 
-  color: #004f42;
+  background-color: #f5f5f5; 
 `;
 
 const Section = styled.section`
@@ -26,16 +25,24 @@ const SubTitle = styled.h2`
 const Paragraph = styled.p`
   font-size: 1.2rem;
   color: #333;
-  max-width: 800px;
-  margin: 0 auto; 
+  max-width: 400px;
+  margin: 10px 0;
 `;
 
 const ToolCard = styled.div`
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 250px;
+  margin: 10px 0;
   padding: 15px;
-  margin: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
+`;
+
+const Content = styled.div`
+  flex: 1;
+  text-align: left;
 `;
 
 const ToolButton = styled.a`
@@ -44,7 +51,6 @@ const ToolButton = styled.a`
   padding: 10px 20px;
   background-color: #11a88a;
   color: white;
-  border-radius: 5px;
   text-decoration: none;
   transition: background-color 0.3s;
 
@@ -53,34 +59,79 @@ const ToolButton = styled.a`
   }
 `;
 
+const ImageContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+
+  img {
+    max-width: 1000px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .image-1 {
+    max-width: 600px;
+  }
+
+  .image-2 {
+    max-width: 1000px;
+  }
+
+  .image-3 {
+    max-width: 700px;
+  }
+
+`;
+
 function Tools() {
   return (
     <Container>
-      <Title>Ferramentas</Title>
-      <Paragraph>Aqui você encontrará várias ferramentas úteis para gerenciar suas finanças.</Paragraph>
-      <Paragraph>Explore nossas planilhas, calculadoras e recursos que ajudam a otimizar sua gestão financeira.</Paragraph>
-
+      <Banner
+        texto="PAINEL DE CONTROLE PESSOAL"
+        texto2="Ferramentas Práticas para Gestão e Planejamento Financeiro"
+        descricao="Explore soluções simples e poderosas para organizar suas finanças, acompanhar seus gastos e alcançar seus objetivos financeiros de forma eficaz."
+      />
       <Section>
-        <SubTitle>1. Calculadora de Máximos e Mínimos</SubTitle>
-        <ToolCard>
-          <Paragraph>Utilize nossa calculadora para Otmização de Gastos ou Redução de Dívidas.</Paragraph>
-          <ToolButton href="/calculadora">Ir para a Calculadora</ToolButton>
+        <ToolCard reverse={false}>
+          <Content>
+            <SubTitle>DESCUBRA SEU PERFIL DE INVESTIDOR</SubTitle>
+            <Paragraph>
+              Permita alinhar expectativas e objetivos financeiros, garantindo decisões mais seguras e personalizadas.
+            </Paragraph>
+            <ToolButton href="/quiz">FAÇA AQUI</ToolButton>
+          </Content>
+          <ImageContainer>
+            <img src={ferramentas3} alt="Imagem ilustrativa sobre investimento"  className="image-1"/>
+          </ImageContainer>
         </ToolCard>
       </Section>
-
       <Section>
-        <SubTitle>2. Planilha de Controle Financeiro</SubTitle>
-        <ToolCard>
-          <Paragraph>Baixe nossa planilha que ajuda você a controlar suas despesas e receitas mensais.</Paragraph>
-          <ToolButton href="/planilha-controle">Baixar Planilha</ToolButton>
+        <ToolCard reverse={true}>
+          <Content>
+            <SubTitle>BAIXE SUA PLANILHA PERSONALIZADA!</SubTitle>
+            <Paragraph>
+              Organize suas finanças de forma prática com nossa planilha personalizada e fácil de usar.
+            </Paragraph>
+            <ToolButton href="/quiz">BAIXAR PLANILHA</ToolButton>
+          </Content>
+          <ImageContainer>
+            <img src={ferramentas2} alt="Imagem ilustrativa sobre planilha" className="image-2" />
+          </ImageContainer>
         </ToolCard>
       </Section>
-
       <Section>
-        <SubTitle>3. Quiz Perfil de Investidor</SubTitle>
-        <ToolCard>
-          <Paragraph>Faça aqui seu quiz e descubra seu perfil de investidor</Paragraph>
-          <ToolButton href="/quiz">Faça Aqui</ToolButton>
+        <ToolCard reverse={false}>
+          <Content>
+            <SubTitle>OTIMIZE SEUS GASTOS!</SubTitle>
+            <Paragraph>
+              Utilize nossa calculadora para Otimização de Gastos ou Redução de Dívidas.
+            </Paragraph>
+            <ToolButton href="/quiz">ENTER</ToolButton>
+          </Content>
+          <ImageContainer>
+            <img src={ferramentas} alt="Imagem ilustrativa sobre a calculadora" className="image-3"/>
+          </ImageContainer>
         </ToolCard>
       </Section>
     </Container>
