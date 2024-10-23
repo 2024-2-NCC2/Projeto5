@@ -66,7 +66,7 @@ function Header() {
       <Nav>
         <NavLinks>
           <li><NavLink href="/">Home</NavLink></li>
-          <li><NavLink href="/noticias">Notícias</NavLink></li>
+          <li><NavLink href="/dicas">Dicas</NavLink></li>
           <li><NavLink href="/ferramentas">Ferramentas</NavLink></li>
           <li><NavLink href="/sobre-nos">Sobre Nós</NavLink></li>
         </NavLinks>
