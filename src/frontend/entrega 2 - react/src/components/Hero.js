@@ -1,3 +1,7 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; 
+import styled from 'styled-components';
+
 const HeroContainer = styled.section`
  display: flex;
   justify-content: space-around;
