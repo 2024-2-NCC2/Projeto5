@@ -70,6 +70,7 @@ const TipTitle = styled.h2`
 const TipDescription = styled.p`
   font-size: 1.2rem;
   color: #333;
+  font-weight: 300;
 `;
 
 const FinancialTips = () => {
@@ -77,41 +78,60 @@ const FinancialTips = () => {
     {
       icon: "📊",
       title: "Faça um Orçamento Mensal",
-      description: "Organize suas receitas e despesas mensais para ter uma visão clara de sua situação financeira. Utilize planilhas ou aplicativos para facilitar o controle.",
+      description: "Mantenha suas finanças em dia organizando suas receitas e despesas mensais. Isso oferece uma visão clara de sua situação financeira, permitindo identificar onde você pode economizar e onde está gastando mais. Considere utilizar planilhas ou aplicativos de finanças pessoais para facilitar o acompanhamento e tornar o controle mais eficiente. Ao ter um registro detalhado, você poderá tomar decisões financeiras mais informadas e alcançar seus objetivos com mais facilidade.",
     },
     {
       icon: "💳",
       title: "Pague suas Contas em Dia",
-      description: "Evite juros e multas pagas por atraso. Estabeleça lembretes para não esquecer as datas de vencimento das suas contas.",
+      description: "Para não perder dinheiro com juros e multas por atraso, crie um sistema de lembretes que avise sobre as datas de vencimento das suas contas. Utilize aplicativos de calendário ou alarmes no celular para garantir que você pague suas contas em dia, preservando assim sua saúde financeira e evitando despesas desnecessárias.",
     },
     {
       icon: "🛟",
       title: "Reserve um Fundo de Emergência",
-      description: "Tenha pelo menos 3 a 6 meses de despesas guardados para imprevistos. Isso traz segurança e tranquilidade em situações inesperadas.",
+      description: "Tenha entre 3 a 6 meses de despesas guardados para imprevistos. Esse fundo traz segurança e tranquilidade em situações inesperadas, como desemprego ou emergências médicas. Ao ter essa reserva, você se sente mais seguro para enfrentar desafios sem comprometer seu orçamento mensal.",
     },
     {
       icon: "📚",
       title: "Invista em Conhecimento Financeiro",
-      description: "Dedique tempo para aprender sobre finanças pessoais, investimentos e como gerenciar melhor seu dinheiro. Livros e cursos online podem ser ótimas fontes.",
+      description: " Dedique tempo para aprender sobre finanças pessoais, investimentos e como gerenciar melhor seu dinheiro. Livros, cursos online e vídeos educativos podem ser ótimas fontes de informação. O conhecimento financeiro é fundamental para tomar decisões mais inteligentes e alcançar seus objetivos econômicos.",
     },
     {
       icon: "🛍️",
       title: "Evite Compras por Impulso",
-      description: "Antes de fazer uma compra, reflita se realmente precisa do item e se ele está no seu orçamento. Dê um tempo antes de decidir.",
+      description: "Antes de realizar uma compra, reserve um tempo para refletir se você realmente precisa do item e se ele está dentro do seu orçamento. Essa pausa ajuda a evitar compras por impulso, garantindo que suas decisões de consumo sejam conscientes e alinhadas com seus objetivos financeiros.",
     },
     {
       icon: "🏦",
       title: "Conheça o Banco do Povo",
-      description: "O Banco do Povo oferece microcrédito com taxas acessíveis para pequenos empreendedores. É uma excelente opção para quem quer iniciar ou expandir um negócio com pouco custo.",
-    }
+      description: "O Banco do Povo oferece microcrédito com taxas acessíveis para pequenos empreendedores. Essa é uma excelente opção para quem deseja iniciar ou expandir um negócio com baixo custo, facilitando o acesso a recursos financeiros e contribuindo para o crescimento do seu empreendimento.",
+    },
+    {
+      icon: "🔍",
+      title: "Revise Seus Gastos Regularmente",
+      description: "Realize uma análise periódica de suas despesas para identificar onde você pode economizar. Faça uma lista dos gastos mensais e identifique aqueles que são supérfluos ou que podem ser reduzidos. Essa prática ajuda a otimizar seu orçamento e direcionar mais recursos para suas metas financeiras.",
+    },
+    {
+      icon: "💸",
+      title: "Tenha um Plano de Pagamento para Dívidas",
+      description: "Se você possui dívidas, é fundamental organizar um plano para pagá-las o quanto antes. Priorize as dívidas com juros mais altos, pois isso pode resultar em uma economia significativa a longo prazo. Criar um cronograma de pagamento e acompanhar seu progresso pode ajudar a aliviar a pressão financeira.",
+    },
+    {
+      icon: "🔖",
+      title: "Aproveite Descontos e Cashback",
+      description: "Busque promoções e utilize programas de cashback para economizar em suas compras. No entanto, lembre-se de evitar compras por impulso apenas para aproveitar uma oferta. Sempre verifique se o item realmente se encaixa nas suas necessidades e no seu orçamento.",
+    },
+    {
+      icon: "📈",
+      title: "Estabeleça Metas Financeiras",
+      description: "Estabeleça objetivos claros para o uso do seu dinheiro, como economizar para uma viagem, investir para o futuro ou adquirir algo importante. Ter metas bem definidas ajuda a manter o foco e a disciplina, permitindo que você direcione seus recursos de forma eficiente para alcançar seus sonhos.",
+    },
   ];
 
   return (
     <TipsContainer>
       <Banner
-        texto="PENSAR EM UM TITULO"
-        texto2="PENSAR SE DEIXA ESSA LINHA"
-        descricao="PENSAR SE COLOCA TEXTO"
+        texto="Dicas de Ouro para seu Bolso"
+        descricao="Transforme sua relação com o dinheiro! Encontre aqui dicas valiosas e estratégias para planejar, poupar e investir de forma inteligente"
       />
       <Title>8 dicas de educação financeira para você transformar sua vida</Title>
       <Subtitle>A educação financeira é essencial para termos mais controle sobre nossa vida e alcançarmos segurança. Saber lidar com dinheiro vai além de economizar: trata-se de entender como ganhar, poupar e investir de forma consciente. No Brasil, o assunto ainda é pouco discutido e muitas vezes só abordado em momentos de crise, o que gera um conceito distorcido. Ter educação financeira é fundamental para tomar melhores decisões, evitar dívidas e garantir uma vida tranquila, independentemente da renda. Aqui, você encontra dicas para transformar sua relação com o dinheiro e construir um futuro mais estável.</Subtitle>
