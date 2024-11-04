@@ -2,13 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import objetivoImage from '../img/objetivoImage.jpg';
 
-
-
 const ObjetivoContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 2rem;
+  
 
   @media (max-width: 768px) {
     flex-direction: column;
@@ -19,6 +18,7 @@ const ObjetivoContainer = styled.div`
 const TextoContainer = styled.div`
   flex: 1;
   padding-right: 10rem;
+  font-weight: 200;
 
   @media (max-width: 768px) {
     padding-right: 0;
@@ -27,6 +27,7 @@ const TextoContainer = styled.div`
   h2 {
     color: #004f42;
     font-size: 5rem;
+    font-weight: 200;
     margin-bottom: 18rem;
   }
 
@@ -34,6 +35,7 @@ const TextoContainer = styled.div`
     color: #333;
     font-size: 2.5rem;
     margin-top: -6em;
+    font-weight: 200;
   }
 `;
 
@@ -45,7 +47,7 @@ const ImageContainer = styled.div`
   img {
     max-width: 900px;
     height: auto;
-    border-radius: 10px;
+    border-radius: 50px;
   }
 `;
 

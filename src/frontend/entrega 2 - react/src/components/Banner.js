@@ -23,7 +23,7 @@ const BannerContainer = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(255, 255, 255, 0.7); 
+    background-color: rgba(255, 255, 255, 0.8); 
     z-index: 1;
   }
 
@@ -57,7 +57,7 @@ function Banner({ id, texto, texto2, descricao }) {
   return (
     <BannerContainer id={id}>
       <Title>{texto}</Title>
-      <Subtitle >{texto2}</Subtitle > {/* Mantendo o uso de texto2 */}
+      <Subtitle >{texto2}</Subtitle > 
       <Paragraph>{descricao}</Paragraph>
     </BannerContainer>
   );

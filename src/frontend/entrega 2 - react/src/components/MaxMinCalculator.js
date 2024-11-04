@@ -62,8 +62,8 @@ const Discrimination = styled.div`
 `;
 
 const DiscriminationItem = styled.p`
-  margin: 5px 0; /* Espaçamento entre itens */
-  font-size: 0.9rem; /* Tamanho do texto da discriminação */
+  margin: 5px 0;     
+  font-size: 0.9rem; 
 `;
 
 function MaxMinCalculator() {

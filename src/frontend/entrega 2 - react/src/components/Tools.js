@@ -1,48 +1,63 @@
 import React from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChartLine, faFileDownload, faCalculator } from '@fortawesome/free-solid-svg-icons';
 import Banner from './Banner';
 import ferramentas3 from '../img/ferramentas3.jpeg';
 import ferramentas from '../img/ferramentas.jpeg';
 import ferramentas2 from '../img/ferramentas2.png';
 
+
 const Container = styled.div`
   text-align: center;
   min-height: 100vh;
-  color: #004f42;
+  color: #333;
   background-color: #f5f5f5; 
 `;
 
 const Section = styled.section`
-  margin: 20px 0;
+  margin: 30px 0;
 `;
 
 const SubTitle = styled.h2`
   font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
   color: #004f42;
   margin: 10px 0;
+  display: center;
+  align-items: auto;
+  gap: 10px;
 `;
 
 const Paragraph = styled.p`
   font-size: 1.2rem;
+  font-family: 'Roboto', sans-serif;
   color: #333;
   max-width: 400px;
-  margin: 10px 0;
+  margin: 10px auto;
 `;
 
 const ToolCard = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 250px;
+  gap: 300px;
   margin: 10px 0;
-  padding: 15px;
-
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
   flex-direction: ${({ reverse }) => (reverse ? 'row-reverse' : 'row')};
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  }
 `;
 
 const Content = styled.div`
   flex: 1;
-  text-align: left;
+  text-align: center;
 `;
 
 const ToolButton = styled.a`
@@ -52,36 +67,25 @@ const ToolButton = styled.a`
   background-color: #11a88a;
   color: white;
   text-decoration: none;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, transform 0.2s;
 
   &:hover {
-    background-color: #004f42;
+    background-color: #007d63;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   }
 `;
 
 const ImageContainer = styled.div`
-  flex: 1;
+ flex: 1;
   display: flex;
   justify-content: center;
 
   img {
-    max-width: 1000px;
+    max-width: 550px;
     height: auto;
-    border-radius: 10px;
+    border-radius: 5px;
   }
-
-  .image-1 {
-    max-width: 600px;
-  }
-
-  .image-2 {
-    max-width: 1000px;
-  }
-
-  .image-3 {
-    max-width: 700px;
-  }
-
 `;
 
 function Tools() {
@@ -95,21 +99,21 @@ function Tools() {
       <Section>
         <ToolCard reverse={false}>
           <Content>
-            <SubTitle>DESCUBRA SEU PERFIL DE INVESTIDOR</SubTitle>
+            <SubTitle><FontAwesomeIcon icon={faChartLine} /> DESCUBRA SEU PERFIL DE INVESTIDOR</SubTitle>
             <Paragraph>
               Permita alinhar expectativas e objetivos financeiros, garantindo decisões mais seguras e personalizadas.
             </Paragraph>
             <ToolButton href="/quiz">Quiz</ToolButton>
           </Content>
           <ImageContainer>
-            <img src={ferramentas3} alt="Imagem ilustrativa sobre investimento"  className="image-1"/>
+            <img src={ferramentas3} alt="Imagem ilustrativa sobre investimento" className="image-1"/>
           </ImageContainer>
         </ToolCard>
       </Section>
       <Section>
         <ToolCard reverse={true}>
           <Content>
-            <SubTitle>BAIXE SUA PLANILHA E PERSONALIZE!</SubTitle>
+            <SubTitle><FontAwesomeIcon icon={faFileDownload} /> BAIXE SUA PLANILHA E PERSONALIZE!</SubTitle>
             <Paragraph>
               Organize suas finanças de forma prática com nossa planilha personalizada e fácil de usar.
             </Paragraph>
@@ -123,7 +127,7 @@ function Tools() {
       <Section>
         <ToolCard reverse={false}>
           <Content>
-            <SubTitle>OTIMIZE SEUS GASTOS!</SubTitle>
+            <SubTitle><FontAwesomeIcon icon={faCalculator} /> OTIMIZE SEUS GASTOS!</SubTitle>
             <Paragraph>
               Utilize nossa calculadora para Otimização de Gastos ou Redução de Dívidas.
             </Paragraph>
