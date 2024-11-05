@@ -6,8 +6,8 @@ import { FaChartLine, FaShieldAlt, FaCoins } from 'react-icons/fa';
 const QuizContainer = styled.div`
   padding: 200px;
   text-align: center;
-  color: #004f42;
-  background: linear-gradient(135deg, #c3e0de, #f6f8f8);
+  color: #000;
+  background: linear-gradient(130deg, #002D21 15%, #9BDDC1 58%, #027553 80%); 
   min-height: 100vh; 
 `;
 
@@ -29,6 +29,7 @@ const OptionButton = styled.button`
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  font-size: 1.4rem;
 
   &:hover {
     background-color: #004f42;
