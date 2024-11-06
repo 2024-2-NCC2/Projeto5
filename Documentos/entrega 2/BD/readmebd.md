@@ -1,5 +1,5 @@
-CREATE DATABASE Pi;
-
+CREATE DATABASE finaq_db;
+use finaq_db;
 CREATE TABLE Usuario (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
