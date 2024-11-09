@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const HeroContainer = styled.section`
  display: flex;
@@ -13,10 +14,10 @@ const HeroContainer = styled.section`
    background: linear-gradient(130deg, #002D21 15%, #9BDDC1 58%, #027553 80%); 
    color: white;
  `;
- const Content = styled.div`
+const Content = styled.div`
    margin-bottom: 2rem; 
  `;
- const Heading = styled.h1`
+const Heading = styled.h1`
    font-size: 2.5rem; 
    margin-bottom: 1rem; 
 
@@ -29,7 +30,7 @@ const HeroContainer = styled.section`
 
  `;
 
- const Paragraph = styled.p`
+const Paragraph = styled.p`
    font-size: 1.5rem; 
    line-height: 1.6; 
    max-width: 600px; 
@@ -43,7 +44,7 @@ const HeroContainer = styled.section`
  `;
 
 
- const FormContainer = styled.div`
+const FormContainer = styled.div`
    h2 {
      margin-bottom: 1rem;
      font-size: 2rem;
@@ -52,7 +53,7 @@ const HeroContainer = styled.section`
    }
  `;
 
- const StyledForm = styled.form`
+const StyledForm = styled.form`
    display: flex;
    flex-direction: column;
    gap: 1rem;
@@ -62,7 +63,7 @@ const HeroContainer = styled.section`
    background: none;
  `;
 
- const StyledInput = styled.input`
+const StyledInput = styled.input`
    padding: 0.8rem;
    border: none;
    border-radius: 30px;
@@ -93,9 +94,9 @@ const TogglePasswordButton = styled.button`
   color: white;
   cursor: pointer;
   font-size: 0.9rem;
-`; 
+`;
 
- const StyledButton = styled.button`
+const StyledButton = styled.button`
    background-color: transparent;
    border: 1px solid #FFFF;
    color: white;
@@ -112,19 +113,19 @@ const TogglePasswordButton = styled.button`
      color: #004f42;
    }
  `;
- const SocialLogin = styled.div`
+const SocialLogin = styled.div`
    display: flex;
    justify-content: center; 
    gap: 1rem; 
    margin-left: -50px;
  `;
- const SocialLink = styled.a`
+const SocialLink = styled.a`
    img {
      width: 30px; 
      height: auto; 
    }
  `;
- const Login = styled.div`
+const Login = styled.div`
    text-align: center;
    p {
      font-size: 14px;
@@ -132,37 +133,66 @@ const TogglePasswordButton = styled.button`
      margin-left: -50px;
    }
  `;
-
 function Hero() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const [formData, setFormData] = useState({
+    nome: '',
+    email: '',
+    telefone: '',
+    data_nasc: '',
+    password: '',
+    confirmPassword: ''
+  });
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const passwordInput = form.querySelector('input[name="password"]');
-    const confirmPasswordInput = form.querySelector('input[name="confirmPassword"]');
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
-    if (passwordInput.value !== confirmPasswordInput.value) {
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
       alert("As senhas não coincidem. Tente novamente.");
       return;
     }
 
-    const emailInput = form.querySelector('input[type="email"]');
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(emailInput.value)) {
-      alert("Por favor, insira um e-mail válido.");
-      return;
-    }
+    try {
+      const response = await axios.post('http://localhost:3001/criar', {
+        nome: formData.nome,
+        email: formData.email,
+        telefone: formData.telefone,
+        data_nasc: formData.data_nasc,
+        senha: formData.password
+      });
 
-    alert("Cadastro realizado com sucesso!");
-    form.reset();
-    navigate('/Home');
+      if (response.ok) {
+        alert("Cadastro realizado com sucesso!");
+        setFormData({
+          nome: '',
+          email: '',
+          telefone: '',
+          data_nasc: '',
+          senha: '',
+          confirmPassword: ''
+        });
+        navigate('/Home');
+      } else {
+        alert("Erro ao registrar usuário, tente novamente.");
+      }
+    } catch (error) {
+      console.error("Erro ao registrar usuário:", error);
+      alert("Erro ao registrar usuário, tente novamente.");
+    }
   };
+
 
   return (
     <HeroContainer>
@@ -175,28 +205,60 @@ function Hero() {
       <FormContainer>
         <h2>Crie uma conta</h2>
         <StyledForm id="formCadastro" onSubmit={handleSubmit}>
-          <StyledInput type="text" placeholder="Nome completo" required />
-          <StyledInput type="email" placeholder="E-mail" required />
-          <StyledInput type="tel" placeholder="Telefone" required />
-          <StyledInput type="date" placeholder="Data de nascimento" required />
-          
+          <StyledInput
+            type="text"
+            name="nome"
+            placeholder="Nome completo"
+            value={formData.nome}
+            onChange={handleChange}
+            required
+          />
+          <StyledInput
+            type="email"
+            name="email"
+            placeholder="E-mail"
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <StyledInput
+            type="tel"
+            name="telefone"
+            placeholder="Telefone"
+            value={formData.telefone}
+            onChange={handleChange}
+            required
+          />
+          <StyledInput
+            type="date"
+            name="data_nasc"
+            placeholder="Data de nascimento"
+            value={formData.data_nasc}
+            onChange={handleChange}
+            required
+          />
+
           <PasswordContainer>
             <StyledInput
               type={showPassword ? "text" : "password"}
-              placeholder="Criar senha"
               name="password"
+              placeholder="Criar senha"
+              value={formData.senha}
+              onChange={handleChange}
               required
             />
             <TogglePasswordButton onClick={handleTogglePassword} type="button">
               {showPassword ? "Ocultar" : "Mostrar"}
             </TogglePasswordButton>
           </PasswordContainer>
-          
+
           <PasswordContainer>
             <StyledInput
               type={showPassword ? "text" : "password"}
-              placeholder="Confirmar senha"
               name="confirmPassword"
+              placeholder="Confirmar senha"
+              value={formData.confirmPassword}
+              onChange={handleChange}
               required
             />
             <TogglePasswordButton onClick={handleTogglePassword} type="button">

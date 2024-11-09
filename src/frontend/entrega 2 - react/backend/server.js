@@ -1,24 +1,26 @@
+require('dotenv').config();
 const express = require('express');
-const connection = require('./config/db'); 
 const mysql = require('mysql2');
 const cors = require('cors');
 const app = express();
 
-app.use(cors({
-    origin: 'http://localhost:3000', 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-}));
+app.use(cors());
+app.use(express.json()); // Configura para processar JSON
 
-app.use(express.json());
+// Configura a conexão com o banco de dados MySQL
+const connection = mysql.createConnection({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    senha: process.env.DB_senha,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT || 3306,
+});
 
-app.get('/test-connection', async (req, res) => {
-    try {
-        const [rows] = await connection.query('SELECT 1 + 1 AS solution');
-        res.json({ message: "Conexão bem-sucedida com o banco de dados!", solution: rows[0].solution });
-    } catch (error) {
-        console.error("Erro ao conectar ao banco de dados:", error.message);
-        res.status(500).json({ message: "Erro ao conectar ao banco de dados", error: error.message });
+connection.connect((err) => {
+    if (err) {
+        console.error("Erro ao conectar ao banco de dados:", err);
+    } else {
+        console.log("Conectado ao banco de dados com sucesso!");
     }
 });
 
@@ -45,5 +47,8 @@ app.post('/criar', (req, res) => {
     );
 });
 
-const PORT = 3001;
-app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+// Inicia o servidor
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
