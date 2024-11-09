@@ -44,8 +44,8 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<Hero />} /> 
-            <Route path="/home" element={<Home />} /> 
+            <Route path="/" element={<Home />} /> 
+            <Route path="/hero" element={<Hero />} /> 
             <Route path="/ferramentas" element={<Tools />} />
             <Route path="/dicas" element={<Tips />} /> 
             <Route path="/sobre-nos" element={<AboutUs />} /> 
