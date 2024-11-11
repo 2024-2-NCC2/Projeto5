@@ -173,23 +173,15 @@ function Hero() {
         senha: formData.password
       });
 
-      if (response.ok) {
-        alert("Cadastro realizado com sucesso!");
-        setFormData({
-          nome: '',
-          email: '',
-          telefone: '',
-          data_nasc: '',
-          senha: '',
-          confirmPassword: ''
-        });
-        navigate('/Home');
+      if (response.status === 201) {
+        alert("Registro bem-sucedido!");
+        navigate('/login'); 
       } else {
-        alert("Erro ao registrar usuário, tente novamente.");
+        alert("Erro ao registrar. Tente novamente.");
       }
     } catch (error) {
-      console.error("Erro ao registrar usuário:", error);
-      alert("Erro ao registrar usuário, tente novamente.");
+      console.error("Erro ao registrar:", error);
+      alert("Erro ao registrar. Tente novamente.");
     }
   };
 

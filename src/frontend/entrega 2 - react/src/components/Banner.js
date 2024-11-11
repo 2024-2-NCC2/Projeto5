@@ -36,14 +36,14 @@ const Title = styled.h1`
   font-size: 3rem;
   font-weight: bold;
   color: #004f42;
-  margin-bottom: 20px; 
+  margin-bottom: -20px; 
 `;
 
 const Paragraph = styled.p`
   font-size: 1.7rem; 
   color: #000;
   max-width: 800px; 
-  line-height: 1.8; 
+  line-height: 1.2; 
   margin: 0 auto; 
 `;
 

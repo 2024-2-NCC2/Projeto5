@@ -10,6 +10,7 @@ import AboutUs from './components/AboutUs';
 import styled, { createGlobalStyle } from 'styled-components';  
 import InvestorQuiz from './components/InvestorQuiz';
 import MaxMinCalculator from './components/MaxMinCalculator';
+import Login from './components/Login';
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -44,13 +45,14 @@ function App() {
         <Header />
         <main>
           <Routes>
-            <Route path="/" element={<Home />} /> 
-            <Route path="/hero" element={<Hero />} /> 
+            <Route path="/" element={<Hero />} /> 
+            <Route path="/home" element={<Home />} /> 
             <Route path="/ferramentas" element={<Tools />} />
             <Route path="/dicas" element={<Tips />} /> 
             <Route path="/sobre-nos" element={<AboutUs />} /> 
             <Route path="/quiz" element={<InvestorQuiz />}/>
             <Route path="/calculadora" element={<MaxMinCalculator />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </main>
         <Footer />

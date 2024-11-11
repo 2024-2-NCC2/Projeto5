@@ -11,7 +11,7 @@ app.use(express.json()); // Configura para processar JSON
 const connection = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
-    senha: process.env.DB_senha,
+    password: process.env.DB_PASSWORD, // corrected typo
     database: process.env.DB_NAME,
     port: process.env.DB_PORT || 3306,
 });
@@ -24,28 +24,6 @@ connection.connect((err) => {
     }
 });
 
-app.post('/criar', (req, res) => {
-    const { nome, email, telefone, data_nasc, senha } = req.body;
-
-    // Log para verificar os valores recebidos
-    console.log("Dados recebidos:", { nome, email, telefone, data_nasc, senha });
-
-    if (!nome || !email || !telefone || !data_nasc || !senha) {
-        return res.status(400).json({ message: "Todos os campos são obrigatórios" });
-    }
-
-    connection.query(
-        'INSERT INTO Usuario (nome, email, telefone, data_nasc, senha) VALUES (?, ?, ?, ?, ?)',
-        [nome, email, telefone, data_nasc, senha],
-        (error, results) => {
-            if (error) {
-                console.error("Erro ao registrar usuário:", error);
-                return res.status(500).json({ message: "Erro ao registrar usuário", error: error.message });
-            }
-            res.status(201).json({ message: "Usuário registrado com sucesso!" });
-        }
-    );
-});
 
 // Inicia o servidor
 const PORT = process.env.PORT || 3001;
