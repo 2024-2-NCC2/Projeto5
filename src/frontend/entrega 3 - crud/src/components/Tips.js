@@ -30,7 +30,7 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.p`
-  font-size: 1.30rem;
+  font-size: 1.15rem;
   font-weight: 300;
   color: #333;
   margin-bottom: -20px;
@@ -81,7 +81,7 @@ const TipTitle = styled.h2`
 `;
 
 const TipDescription = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #333;
   font-weight: 300;
 `;

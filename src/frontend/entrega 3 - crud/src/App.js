@@ -54,7 +54,7 @@ function App() {
             <Route path="/quiz" element={<InvestorQuiz />}/>
             <Route path="/calculadora" element={<MaxMinCalculator />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/user/:userId" element={<UserData />} />
+            <Route path="/user" element={<UserData />} />
           </Routes>
         </main>
         <Footer />
