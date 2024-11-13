@@ -11,6 +11,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 import InvestorQuiz from './components/InvestorQuiz';
 import MaxMinCalculator from './components/MaxMinCalculator';
 import Login from './components/Login';
+import UserData from './components/UserData';
 
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
@@ -53,6 +54,7 @@ function App() {
             <Route path="/quiz" element={<InvestorQuiz />}/>
             <Route path="/calculadora" element={<MaxMinCalculator />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/user/:userId" element={<UserData />} />
           </Routes>
         </main>
         <Footer />
