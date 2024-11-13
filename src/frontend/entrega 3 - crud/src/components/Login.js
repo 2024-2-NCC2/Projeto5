@@ -83,10 +83,6 @@ const Login = () => {
     }
   };
 
-  const handleRegisterRedirect = () => {
-    navigate('/'); // Redireciona para a página Hero (Registro)
-  };
-
   return (
     <LoginContainer>
       <LoginForm onSubmit={handleSubmit}>
@@ -106,9 +102,6 @@ const Login = () => {
         />
         <Button type="submit" disabled={isLoading}>
           {isLoading ? 'Carregando...' : 'Entrar'}
-        </Button>
-        <Button type="button" onClick={handleRegisterRedirect}>
-          Crie sua conta
         </Button>
         {error && <ErrorMessage>{error}</ErrorMessage>}
       </LoginForm>

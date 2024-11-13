@@ -17,10 +17,10 @@ app.use(express.json()); // Configura para processar JSON
 
 // Configura a conexão com o banco de dados MySQL
 const connection = mysql.createConnection({
-    host: process.env.DB_HOST, // Exemplo: 'localhost'
-    user: process.env.DB_USER, // Seu usuário do MySQL
-    password: process.env.DB_PASSWORD, // Sua senha do MySQL
-    database: process.env.DB_NAME, // Nome do seu banco de dados
+    host: process.env.DB_HOST, 
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
 });
 
 // Verifica a conexão com o banco de dados
@@ -32,12 +32,7 @@ connection.connect((err) => {
     }
 });
 
-
-app.get('/protected-route', authMiddleware, (req, res) => {
-    res.send("Essa rota só pode ser acessada por usuários autenticados.");
-});
-
-
+// Endpoint para testar a conexão com o banco de dados
 app.get('/test-connection', async (req, res) => {
     try {
         const [rows] = await connection.query('SELECT 1 + 1 AS solution');
@@ -48,27 +43,16 @@ app.get('/test-connection', async (req, res) => {
     }
 });
 
-app.get('/usuarios', authMiddleware, (req, res) => {
-    connection.query('SELECT * FROM Usuario', (error, results) => {
-        if (error) {
-            console.error("Erro ao obter a lista de usuários:", error);
-            return res.status(500).json({ message: "Erro ao obter a lista de usuários", error: error.message });
-        }
-        res.status(200).json(results);
-    });
-});
-
+// Endpoint para registrar um novo usuário
 app.post('/criar', async (req, res) => {
     const { nome, email, telefone, data_nasc, senha } = req.body;
-
-    console.log("Dados recebidos:", { nome, email, telefone, data_nasc, senha });
 
     if (!nome || !email || !telefone || !data_nasc || !senha) {
         return res.status(400).json({ message: "Todos os campos são obrigatórios" });
     }
 
     try {
-        const hashedSenha = await bcrypt.hash(senha, 10); // Hash da senha
+        const hashedSenha = await bcrypt.hash(senha, 10);
 
         connection.query(
             'INSERT INTO Usuario (nome, email, telefone, data_nasc, senha) VALUES (?, ?, ?, ?, ?)',
@@ -78,10 +62,8 @@ app.post('/criar', async (req, res) => {
                     console.error("Erro ao registrar usuário:", error);
                     return res.status(500).json({ message: "Erro ao registrar usuário", error: error.message });
                 }
-                else{
                 res.status(201).json({ message: "Usuário registrado com sucesso!" });
             }
-        }
         );
     } catch (error) {
         console.error("Erro ao hash a senha:", error);
@@ -89,14 +71,13 @@ app.post('/criar', async (req, res) => {
     }
 });
 
+// Endpoint para fazer login
 app.post('/login', (req, res) => {
-    const { email, senha } = req.body; // Obtém do corpo da requisição
+    const { email, senha } = req.body;
 
     if (!email || !senha) {
         return res.status(400).json({ message: "Email e senha são obrigatórios" });
     }
-
-    const trimmedSenha = senha.trim();
 
     connection.query(
         'SELECT * FROM Usuario WHERE email = ?',
@@ -109,10 +90,9 @@ app.post('/login', (req, res) => {
 
             if (results && results.length > 0) {
                 const user = results[0];
-                const match = await bcrypt.compare(trimmedSenha, user.senha);
+                const match = await bcrypt.compare(senha, user.senha);
                 if (match) {
                     const token = generateToken(user);
-                    console.log("Usuário autenticado:", user, token);
                     res.status(200).json({ message: "Login bem-sucedido", token });
                 } else {
                     res.status(401).json({ message: "Credenciais inválidas" });
@@ -124,6 +104,38 @@ app.post('/login', (req, res) => {
     );
 });
 
+// Endpoint para recuperar todos os usuários (protegido)
+app.get('/usuarios', authMiddleware, (req, res) => {
+    connection.query('SELECT * FROM Usuario', (error, results) => {
+        if (error) {
+            console.error("Erro ao obter a lista de usuários:", error);
+            return res.status(500).json({ message: "Erro ao obter a lista de usuários", error: error.message });
+        }
+        res.status(200).json(results);
+    });
+});
+app.get('/usuario', authMiddleware, (req, res) => {
+    const userId = req.user.id;
+
+    connection.query(
+        'SELECT id, nome, email, telefone, data_nasc FROM Usuario WHERE id = ?',
+        [userId],
+        (error, results) => {
+            if (error) {
+                console.error("Erro ao obter dados do usuário:", error);
+                return res.status(500).json({ message: "Erro ao obter dados do usuário", error: error.message });
+            }
+
+            if (results && results.length > 0) {
+                res.status(200).json(results[0]);
+            } else {
+                res.status(404).json({ message: "Usuário não encontrado" });
+            }
+        }
+    );
+});
+
+// Endpoint para salvar resultado do quiz (protegido)
 app.post('/save-quiz', authMiddleware, (req, res) => {
     const { score, investorProfile } = req.body;
     const userId = req.user.id;
@@ -143,11 +155,9 @@ app.post('/save-quiz', authMiddleware, (req, res) => {
                 return res.status(500).json({ message: "Erro ao salvar o resultado do quiz", error: error.message });
             }
             res.status(201).json({ message: "Resultado do quiz salvo com sucesso!" });
-            console.log("Resultado do quiz salvo com sucesso:", { userId, score, investorProfile });
         }
     );
 });
-
 
 const PORT = 3001;
 app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
