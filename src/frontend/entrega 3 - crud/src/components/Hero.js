@@ -113,12 +113,7 @@ const StyledButton = styled.button`
      color: #004f42;
    }
  `;
-const SocialLogin = styled.div`
-   display: flex;
-   justify-content: center; 
-   gap: 1rem; 
-   margin-left: -50px;
- `;
+
 const SocialLink = styled.a`
    img {
      width: 30px; 
@@ -132,7 +127,14 @@ const Login = styled.div`
      margin-bottom: 10px;
      margin-left: -50px;
    }
+
+   a{
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+   }
  `;
+
 function Hero() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -173,15 +175,23 @@ function Hero() {
         senha: formData.password
       });
 
-      if (response.status === 201) {
-        alert("Registro bem-sucedido!");
-        navigate('/login'); 
+      if (response.ok) {
+        alert("Cadastro realizado com sucesso!");
+        setFormData({
+          nome: '',
+          email: '',
+          telefone: '',
+          data_nasc: '',
+          senha: '',
+          confirmPassword: ''
+        });
+        navigate('/Home');
       } else {
-        alert("Erro ao registrar. Tente novamente.");
+        alert("Erro ao registrar usuário, tente novamente.");
       }
     } catch (error) {
-      console.error("Erro ao registrar:", error);
-      alert("Erro ao registrar. Tente novamente.");
+      console.error("Erro ao registrar usuário:", error);
+      alert("Erro ao registrar usuário, tente novamente.");
     }
   };
 
@@ -257,15 +267,13 @@ function Hero() {
               {showPassword ? "Ocultar" : "Mostrar"}
             </TogglePasswordButton>
           </PasswordContainer>
-
           <Login>
-            <p>Já tem uma conta? Conecte-se</p>
-            <SocialLogin>
-              <SocialLink href="#"><img src="/facebook.png" alt="Facebook" /></SocialLink>
-              <SocialLink href="#"><img src="/linkedin.png" alt="LinkedIn" /></SocialLink>
-              <SocialLink href="#"><img src="/gmail.png" alt="Gmail" /></SocialLink>
-            </SocialLogin>
+            <p>
+              Já tem uma conta?{" "}
+              <a onClick={() => navigate('/Login')}>Conecte-se</a>
+              </p>
           </Login>
+
           <StyledButton type="submit">Começar</StyledButton>
         </StyledForm>
       </FormContainer>

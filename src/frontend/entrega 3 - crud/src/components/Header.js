@@ -22,7 +22,6 @@ const Nav = styled.nav`
 `;
 
 const NavLinks = styled.ul`
-  margin-left: -950px;
   list-style: none;
   display: flex;
   justify-content: center;
@@ -32,24 +31,25 @@ const NavLinks = styled.ul`
 const NavLink = styled.a`
   color: white;
   text-decoration: none;
-  font-size: 26px;
-  padding: 5x 10px;
+  font-size: 20px;
+  padding: 5px 10px;
   transition: color 0.3s, background-color 0.3s;
 
   &:hover {
-    color: #6f7a74; 
+    color: #004f42; 
   }
 `;
 
-const MinhaContaButton = styled.button`
+const MinhaContaButton = styled.a`
   background-color: transparent;
   border: 2px solid white;
   color: white;
-  padding: 13px 30px;
+  padding: 10px 20px;
   cursor: pointer;
   border-radius: 20px;
   transition: all 0.3s ease;
   font-size: 17px;
+  text-decoration: none;
 
   &:hover {
     background-color: #fff;
@@ -65,13 +65,13 @@ function Header() {
       </Logo>
       <Nav>
         <NavLinks>
-          <li><NavLink href="/Home">Home</NavLink></li>
+          <li><NavLink href="/">Home</NavLink></li>
           <li><NavLink href="/dicas">Dicas</NavLink></li>
           <li><NavLink href="/ferramentas">Ferramentas</NavLink></li>
           <li><NavLink href="/sobre-nos">Sobre Nós</NavLink></li>
         </NavLinks>
       </Nav>
-      <MinhaContaButton><NavLink href="/login">Minha conta</NavLink></MinhaContaButton>
+      <MinhaContaButton href="/Hero">Minha conta</MinhaContaButton>
     </HeaderContainer>
   );
 }
