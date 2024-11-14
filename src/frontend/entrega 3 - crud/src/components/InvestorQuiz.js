@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { FaChartLine, FaShieldAlt, FaCoins } from 'react-icons/fa';
-
+import axios from 'axios';
 
 const QuizContainer = styled.div`
   padding: 200px;
@@ -10,7 +10,6 @@ const QuizContainer = styled.div`
   background: linear-gradient(130deg, #002D21 15%, #9BDDC1 58%, #027553 80%); 
   min-height: 100vh; 
 `;
-
 
 const Question = styled.h2`
   font-size: 2.5rem;
@@ -54,8 +53,6 @@ const Result = styled.div`
     }
   }
 `;
-
-
 
 const questions = [
   {
@@ -104,6 +101,25 @@ function InvestorQuiz() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [quizComplete, setQuizComplete] = useState(false);
+  const [quizExists, setQuizExists] = useState(false);
+
+  useEffect(() => {
+    const verificarQuizExistente = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        const response = await axios.get('http://localhost:3001/usuario/quiz/existe', {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        if (response.data.message.includes("já possui um quiz")) {
+          setQuizExists(true);
+        }
+      } catch (error) {
+        console.error("Erro ao verificar quiz existente:", error);
+      }
+    };
+
+    verificarQuizExistente();
+  }, []);
 
   const handleOptionClick = (points) => {
     setScore(score + points);
@@ -124,12 +140,12 @@ function InvestorQuiz() {
     const investorProfile = getInvestorProfile(score);
 
     try {
-      const token = localStorage.getItem('token'); // Supondo que o token é armazenado no localStorage
+      const token = localStorage.getItem('token');
       await fetch('http://localhost:3001/save-quiz', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`, // Adiciona o prefixo 'Bearer'
+          'Authorization': `Bearer ${token}`,
         },
         body: JSON.stringify({ score, investorProfile }),
       });
@@ -145,44 +161,49 @@ function InvestorQuiz() {
     }
   }, [quizComplete]);
 
+  if (quizExists) {
+    return (
+      <QuizContainer>
+        <h2>Você já possui um resultado de quiz.</h2>
+        <p>Por favor, exclua o quiz existente antes de iniciar um novo.</p>
+      </QuizContainer>
+    );
+  }
+
   return (
     <QuizContainer>
       {!quizComplete ? (
         <>
           <Question>{questions[currentQuestion].question}</Question>
           {questions[currentQuestion].options.map((option, index) => (
-  <OptionButton key={index} onClick={() => handleOptionClick(option.points)}>
-    {index === 0 && <FaShieldAlt style={{ marginRight: '8px' }} />}
-    {index === 1 && <FaChartLine style={{ marginRight: '8px' }} />}
-    {index === 2 && <FaCoins style={{ marginRight: '8px' }} />}
-    {option.text}
-  </OptionButton>
-))}
-
+            <OptionButton key={index} onClick={() => handleOptionClick(option.points)}>
+              {index === 0 && <FaShieldAlt style={{ marginRight: '8px' }} />}
+              {index === 1 && <FaChartLine style={{ marginRight: '8px' }} />}
+              {index === 2 && <FaCoins style={{ marginRight: '8px' }} />}
+              {option.text}
+            </OptionButton>
+          ))}
         </>
       ) : (
         <Result>
-  <h2>Resultado do Quiz</h2>
-  <p>Sua pontuação: {score}</p>
-  <p>Perfil de Investidor: {getInvestorProfile(score)}</p>
-  <p>
-  {getInvestorProfile(score) === 'Conservador' &&
-    'Você prioriza a segurança em seus investimentos e prefere opções com risco mínimo.'}
-  {getInvestorProfile(score) === 'Moderado' &&
-    'Você busca um equilíbrio entre segurança e crescimento, aceitando riscos controlados.'}
-  {getInvestorProfile(score) === 'Agressivo' &&
-    'Você está disposto a correr riscos maiores em busca de retornos significativos.'}
-</p>
-  <OptionButton onClick={() => window.location.href = '/artigos'}>
-    Descubra mais sobre seu perfil
-  </OptionButton>
-</Result>
-
+          <h2>Resultado do Quiz</h2>
+          <p>Sua pontuação: {score}</p>
+          <p>Perfil de Investidor: {getInvestorProfile(score)}</p>
+          <p>
+            {getInvestorProfile(score) === 'Conservador' &&
+              'Você prioriza a segurança em seus investimentos e prefere opções com risco mínimo.'}
+            {getInvestorProfile(score) === 'Moderado' &&
+              'Você busca um equilíbrio entre segurança e crescimento, aceitando riscos controlados.'}
+            {getInvestorProfile(score) === 'Agressivo' &&
+              'Você está disposto a correr riscos maiores em busca de retornos significativos.'}
+          </p>
+          <OptionButton onClick={() => (window.location.href = '/artigos')}>
+            Descubra mais sobre seu perfil
+          </OptionButton>
+        </Result>
       )}
     </QuizContainer>
   );
-
-
 }
 
 export default InvestorQuiz;

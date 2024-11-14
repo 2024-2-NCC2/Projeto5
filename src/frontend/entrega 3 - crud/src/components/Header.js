@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
@@ -22,18 +22,18 @@ const Nav = styled.nav`
 `;
 
 const NavLinks = styled.ul`
-  margin-left: -950px;
   list-style: none;
   display: flex;
   justify-content: center;
   gap: 40px;
+  margin: 0;
 `;
 
 const NavLink = styled.a`
   color: white;
   text-decoration: none;
   font-size: 26px;
-  padding: 5x 10px;
+  padding: 5px 10px;
   transition: color 0.3s, background-color 0.3s;
 
   &:hover {
@@ -41,7 +41,7 @@ const NavLink = styled.a`
   }
 `;
 
-const MinhaContaButton = styled.button`
+const MinhaContaButton = styled.a`
   background-color: transparent;
   border: 2px solid white;
   color: white;
@@ -50,6 +50,7 @@ const MinhaContaButton = styled.button`
   border-radius: 20px;
   transition: all 0.3s ease;
   font-size: 17px;
+  text-decoration: none;
 
   &:hover {
     background-color: #fff;
@@ -58,6 +59,13 @@ const MinhaContaButton = styled.button`
 `;
 
 function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token); // Define isLoggedIn como true se o token estiver presente
+  }, []);
+
   return (
     <HeaderContainer>
       <Logo>
@@ -71,7 +79,9 @@ function Header() {
           <li><NavLink href="/sobre-nos">Sobre Nós</NavLink></li>
         </NavLinks>
       </Nav>
-      <MinhaContaButton><NavLink href="/login">Minha conta</NavLink></MinhaContaButton>
+      <MinhaContaButton href={isLoggedIn ? "/user" : "/login"}>
+        {isLoggedIn ? "Minha Conta" : "Entrar"}
+      </MinhaContaButton>
     </HeaderContainer>
   );
 }

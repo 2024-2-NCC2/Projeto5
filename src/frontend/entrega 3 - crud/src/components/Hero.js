@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -111,18 +111,6 @@ const StyledButton = styled.button`
    &:hover {
      background-color: #fff;
      color: #004f42;
-   }
- `;
-const SocialLogin = styled.div`
-   display: flex;
-   justify-content: center; 
-   gap: 1rem; 
-   margin-left: -50px;
- `;
-const SocialLink = styled.a`
-   img {
-     width: 30px; 
-     height: auto; 
    }
  `;
 const Login = styled.div`
@@ -259,12 +247,8 @@ function Hero() {
           </PasswordContainer>
 
           <Login>
-            <p>Já tem uma conta? Conecte-se</p>
-            <SocialLogin>
-              <SocialLink href="#"><img src="/facebook.png" alt="Facebook" /></SocialLink>
-              <SocialLink href="#"><img src="/linkedin.png" alt="LinkedIn" /></SocialLink>
-              <SocialLink href="#"><img src="/gmail.png" alt="Gmail" /></SocialLink>
-            </SocialLogin>
+            <NavLink href ="/login">Já tem uma conta? Conecte-se</NavLink>
+
           </Login>
           <StyledButton type="submit">Começar</StyledButton>
         </StyledForm>

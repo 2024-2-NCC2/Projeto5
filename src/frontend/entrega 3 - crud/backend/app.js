@@ -118,7 +118,7 @@ app.get('/usuario', authMiddleware, (req, res) => {
     const userId = req.user.id;
 
     connection.query(
-        'SELECT id, nome, email, telefone, data_nasc FROM Usuario WHERE id = ?',
+        'SELECT Usuario.id, Usuario.nome, Usuario.email, Usuario.telefone, Usuario.data_nasc, QuizPerfilInvestidor.perfil_calculado FROM Usuario LEFT JOIN QuizPerfilInvestidor ON Usuario.id = QuizPerfilInvestidor.usuario_id WHERE Usuario.id = ?',
         [userId],
         (error, results) => {
             if (error) {
@@ -135,7 +135,6 @@ app.get('/usuario', authMiddleware, (req, res) => {
     );
 });
 
-// Endpoint para salvar resultado do quiz (protegido)
 app.post('/save-quiz', authMiddleware, (req, res) => {
     const { score, investorProfile } = req.body;
     const userId = req.user.id;
@@ -155,6 +154,73 @@ app.post('/save-quiz', authMiddleware, (req, res) => {
                 return res.status(500).json({ message: "Erro ao salvar o resultado do quiz", error: error.message });
             }
             res.status(201).json({ message: "Resultado do quiz salvo com sucesso!" });
+        }
+    );
+});
+app.put('/usuario', authMiddleware, (req, res) => {
+    const userId = req.user.id;
+    const { nome, email, telefone, data_nasc } = req.body;
+
+    connection.query(
+        'UPDATE Usuario SET nome = ?, email = ?, telefone = ?, data_nasc = ? WHERE id = ?',
+        [nome, email, telefone, data_nasc, userId],
+        (error, results) => {
+            if (error) {
+                console.error("Erro ao atualizar dados do usuário:", error);
+                return res.status(500).json({ message: "Erro ao atualizar dados do usuário", error: error.message });
+            }
+            res.status(200).json({ message: "Dados do usuário atualizados com sucesso!" });
+        }
+    );
+});
+
+app.delete('/usuario', authMiddleware, (req, res) => {
+    const userId = req.user.id;
+
+    connection.query(
+        'DELETE FROM Usuario WHERE id = ?',
+        [userId],
+        (error, results) => {
+            if (error) {
+                console.error("Erro ao excluir usuário:", error);
+                return res.status(500).json({ message: "Erro ao excluir usuário", error: error.message });
+            }
+            res.status(200).json({ message: "Usuário excluído com sucesso!" });
+        }
+    );
+});
+app.delete('/usuario/quiz', authMiddleware, (req, res) => {
+    const userId = req.user.id;
+
+    connection.query(
+        'DELETE FROM QuizPerfilInvestidor WHERE usuario_id = ?',
+        [userId],
+        (error, results) => {
+            if (error) {
+                console.error("Erro ao excluir o resultado do quiz:", error);
+                return res.status(500).json({ message: "Erro ao excluir o resultado do quiz", error: error.message });
+            }
+            res.status(200).json({ message: "Resultado do quiz excluído com sucesso!" });
+        }
+    );
+});
+app.get('/usuario/quiz/existe', authMiddleware, (req, res) => {
+    const userId = req.user.id;
+
+    connection.query(
+        'SELECT * FROM QuizPerfilInvestidor WHERE usuario_id = ?',
+        [userId],
+        (error, results) => {
+            if (error) {
+                console.error("Erro ao verificar o quiz do usuário:", error);
+                return res.status(500).json({ message: "Erro ao verificar o quiz do usuário", error: error.message });
+            }
+
+            if (results && results.length > 0) {
+                res.status(200).json({ message: "Usuário já possui um quiz realizado. Exclua o quiz existente antes de criar um novo." });
+            } else {
+                res.status(200).json({ message: "Usuário não possui um quiz realizado. Pode prosseguir com a criação do quiz." });
+            }
         }
     );
 });

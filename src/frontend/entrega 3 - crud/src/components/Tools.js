@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChartLine, faFileDownload, faCalculator } from '@fortawesome/free-solid-svg-icons';
@@ -6,6 +6,7 @@ import Banner from './Banner';
 import ferramentas3 from '../img/ferramentas3.jpeg';
 import ferramentas from '../img/ferramentas.jpeg';
 import ferramentas2 from '../img/ferramentas2.png';
+import { useNavigate } from 'react-router-dom';
 
 const Container = styled.div`
   text-align: center;
@@ -86,6 +87,19 @@ const ImageContainer = styled.div`
 `;
 
 function Tools() {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      alert("Você precisa estar logado para acessar essa página!");
+      navigate("/login");
+    } else {
+      setIsLoggedIn(true);
+    }
+  }, [navigate]);
+
   return (
     <Container>
       <Banner
