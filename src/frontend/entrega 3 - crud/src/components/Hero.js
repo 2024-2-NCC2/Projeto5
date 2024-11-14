@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 
@@ -113,6 +113,13 @@ const StyledButton = styled.button`
      color: #004f42;
    }
  `;
+
+const SocialLink = styled.a`
+   img {
+     width: 30px; 
+     height: auto; 
+   }
+ `;
 const Login = styled.div`
    text-align: center;
    p {
@@ -120,7 +127,14 @@ const Login = styled.div`
      margin-bottom: 10px;
      margin-left: -50px;
    }
+
+   a{
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+   }
  `;
+
 function Hero() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -161,15 +175,23 @@ function Hero() {
         senha: formData.password
       });
 
-      if (response.status === 201) {
-        alert("Registro bem-sucedido!");
-        navigate('/login'); 
+      if (response.ok) {
+        alert("Cadastro realizado com sucesso!");
+        setFormData({
+          nome: '',
+          email: '',
+          telefone: '',
+          data_nasc: '',
+          senha: '',
+          confirmPassword: ''
+        });
+        navigate('/Home');
       } else {
-        alert("Erro ao registrar. Tente novamente.");
+        alert("Erro ao registrar usuário, tente novamente.");
       }
     } catch (error) {
-      console.error("Erro ao registrar:", error);
-      alert("Erro ao registrar. Tente novamente.");
+      console.error("Erro ao registrar usuário:", error);
+      alert("Erro ao registrar usuário, tente novamente.");
     }
   };
 
@@ -245,11 +267,13 @@ function Hero() {
               {showPassword ? "Ocultar" : "Mostrar"}
             </TogglePasswordButton>
           </PasswordContainer>
-
           <Login>
-            <NavLink href ="/login">Já tem uma conta? Conecte-se</NavLink>
-
+            <p>
+              Já tem uma conta?{" "}
+              <a onClick={() => navigate('/Login')}>Conecte-se</a>
+              </p>
           </Login>
+
           <StyledButton type="submit">Começar</StyledButton>
         </StyledForm>
       </FormContainer>
