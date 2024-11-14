@@ -104,7 +104,7 @@ const Login = () => {
           {isLoading ? 'Carregando...' : 'Entrar'}
         </Button>
         {error && <ErrorMessage>{error}</ErrorMessage>}
-        <Button type="button" onClick={() => navigate('/register')}>Criar conta</Button>
+        <Button type="button" onClick={() => navigate('/registrar')}>Criar conta</Button>
       </LoginForm>
     </LoginContainer>
   );

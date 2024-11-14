@@ -63,7 +63,7 @@ function Header() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    setIsLoggedIn(!!token); // Define isLoggedIn como true se o token estiver presente
+    setIsLoggedIn(!!token); 
   }, []);
 
   return (
