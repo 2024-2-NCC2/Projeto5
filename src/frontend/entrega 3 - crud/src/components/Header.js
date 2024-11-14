@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
@@ -58,6 +58,13 @@ const MinhaContaButton = styled.a`
 `;
 
 function Header() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    setIsLoggedIn(!!token); 
+  }, []);
+
   return (
     <HeaderContainer>
       <Logo>
@@ -71,7 +78,9 @@ function Header() {
           <li><NavLink href="/sobre-nos">Sobre Nós</NavLink></li>
         </NavLinks>
       </Nav>
-      <MinhaContaButton href="/Hero">Minha conta</MinhaContaButton>
+      <MinhaContaButton href={isLoggedIn ? "/user" : "/login"}>
+        {isLoggedIn ? "Minha Conta" : "Entrar"}
+      </MinhaContaButton>
     </HeaderContainer>
   );
 }
