@@ -28,7 +28,7 @@ const MainContent = styled.main`
 const Section = styled.section`
   padding: 60px 130px;
   text-align: center;
-  background-color: #ffffff;
+  background-color: #EEEDED;
   border-radius: 10px; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
@@ -315,9 +315,9 @@ function Home() {
             
             <ServiceBlock>
               <ServiceTextLast>
-                <ServiceTitle>DICAS PRATICAS PARA VOCÊ!</ServiceTitle>
-                <ServiceDescriptionLast>Aprenda estratégias simples e eficazes para administrar melhor seu dinheiro e alcançar seus objetivos financeiros.</ServiceDescriptionLast>
-                <EnterButtonLast to="/dicas">Dicas</EnterButtonLast>
+                <ServiceTitle> OTIMIZE SEUS GASTOS!</ServiceTitle>
+                <ServiceDescriptionLast>Utilize nossa calculadora para Otimização de Gastos ou Redução de Dívidas.</ServiceDescriptionLast>
+                <EnterButtonLast to="/calculadora">Calculadora</EnterButtonLast>
               </ServiceTextLast>
               <ServiceImage src={handsStackingCoins} alt="Mãos empilhando moedas" />
             </ServiceBlock>

@@ -47,7 +47,7 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} /> 
-            <Route path="/registrar" element={<Hero />} /> 
+            <Route path="/Hero" element={<Hero />} /> 
             <Route path="/ferramentas" element={<Tools />} />
             <Route path="/dicas" element={<Tips />} /> 
             <Route path="/sobre-nos" element={<AboutUs />} /> 

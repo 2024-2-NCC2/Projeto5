@@ -12,7 +12,7 @@ const Container = styled.div`
   text-align: center;
   min-height: 100vh;
   color: #333;
-  background-color: #f5f5f5; 
+  background-color: #EEEDED; 
 `;
 
 const Section = styled.section`

@@ -9,7 +9,7 @@ const Container = styled.div`
   text-align: center;
   min-height: 100vh;
   color: #004f42;
-  background-color: #f5f5f5; 
+  background-color: #EEEDED; 
 `;
 
 const SeparatedSection = styled.div`
@@ -40,7 +40,7 @@ function AboutUs () {
       </SeparatedSection>
       
       <SeparatedSection>
-        <Botao texto="Faça sua inscrição"><NavLink href="/">Minha conta</NavLink></Botao>
+        <Botao texto="Faça sua inscrição"><NavLink href="/Hero">Minha conta</NavLink></Botao>
       </SeparatedSection>
       
         <Objetivo />

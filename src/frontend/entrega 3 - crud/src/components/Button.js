@@ -24,7 +24,7 @@ const Botao = ({ texto }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('/'); 
+    navigate('/Hero'); 
   };
 
   return <StyledButton onClick={handleClick}>{texto}</StyledButton>;
