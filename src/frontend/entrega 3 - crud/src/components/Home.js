@@ -260,7 +260,15 @@ function Home() {
   return (
     <HomeContainer>
       <MainContent>
-        <Banner texto={<Link to="/sobre-nos" style={{ color: 'inherit', textDecoration: 'none' }}>SUA MUDANÇA FINANCEIRA COMEÇA AQUI!</Link>} /> 
+      <Banner 
+  texto={
+    <>
+      SUA MUDANÇA FINANCEIRA COMEÇA <Link to="/sobre-nos" style={{ color: 'inherit', textDecoration: 'none' }}>
+        <span style={{ textDecoration: 'underline' }}>AQUI!</span>
+      </Link>
+    </>
+  } 
+/>
         <Section>
           <CarouselContainer>
           <CarouselInner activeIndex={currentTip}>

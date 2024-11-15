@@ -143,7 +143,7 @@ const FinancialTips = () => {
   return (
     <TipsContainer>
       <Banner
-        texto="Dicas de Ouro para seu Bolso"
+        texto="DICAS DE OURO PARA O SEU BOLSO!"
         descricao="Transforme sua relação com o dinheiro! Encontre aqui dicas valiosas e estratégias para planejar, poupar e investir de forma inteligente"
       />
       <Title>8 dicas de educação financeira para você transformar sua vida</Title>

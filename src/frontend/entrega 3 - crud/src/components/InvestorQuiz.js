@@ -197,10 +197,7 @@ function InvestorQuiz() {
             {getInvestorProfile(score) === 'Agressivo' &&
               'Você está disposto a correr riscos maiores em busca de retornos significativos.'}
           </p>
-          <OptionButton onClick={() => (window.location.href = '/artigos')}>
-            Descubra mais sobre seu perfil
-          </OptionButton>
-        </Result>
+            </Result>
       )}
     </QuizContainer>
   );
