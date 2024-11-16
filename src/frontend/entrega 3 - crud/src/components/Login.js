@@ -69,8 +69,8 @@ const Login = () => {
 
       if (response.ok) {
         console.log("Login bem-sucedido:", data);
-        localStorage.setItem('token', data.token); // Armazena o token no localStorage
-        navigate('/home'); // Redireciona para a página Home após sucesso
+        localStorage.setItem('token', data.token); 
+        navigate('/home'); 
       } else {
         console.error("Login falhou:", data.message);
         setError("Credenciais inválidas.");

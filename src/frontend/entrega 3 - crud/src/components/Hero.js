@@ -102,12 +102,7 @@ const HeroContainer = styled.section`
       color: #004f42;
     }
   `;
- const SocialLink = styled.a`
-    img {
-      width: 30px; 
-      height: auto; 
-    }
-  `;
+  
  const Login = styled.div`
     text-align: center;
     p {
