@@ -54,7 +54,7 @@ const Login = () => {
     if (isLoading) return;
 
     setIsLoading(true);
-    setError(''); // Reseta erros anteriores
+    setError(''); 
 
     try {
       const response = await fetch('http://localhost:3001/login', {
@@ -104,7 +104,7 @@ const Login = () => {
           {isLoading ? 'Carregando...' : 'Entrar'}
         </Button>
         {error && <ErrorMessage>{error}</ErrorMessage>}
-        <Button type="button" onClick={() => navigate('/registrar')}>Criar conta</Button>
+        <Button type="button" onClick={() => navigate('/Hero')}>Criar conta</Button>
       </LoginForm>
     </LoginContainer>
   );

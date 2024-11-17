@@ -18,7 +18,7 @@ const HeroContainer = styled.section`
     margin-bottom: 2rem; 
   `;
  const Heading = styled.h1`
-    font-size: 2.5rem; 
+    font-size: 2rem; 
     margin-bottom: 1rem; 
     @media (max-width: 768px) {
       font-size: 2rem; 

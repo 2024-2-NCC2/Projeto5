@@ -19,7 +19,7 @@
    flex: 1;
  `;
  const NavLinks = styled.ul`
-   margin-left: -800px;
+   margin-left: -300px;
    list-style: none;
    display: flex;
    justify-content: center;
@@ -48,6 +48,7 @@
    border-radius: 20px;
    transition: all 0.3s ease;
    font-size: 17px;
+
    &:hover {
      background-color: #fff;
      color: #004f42;
@@ -91,7 +92,7 @@
        </Nav>
        <ButtonContainer>
          <CustomButton>
-           <NavLink href="/Hero">Sign In</NavLink>
+           <NavLink href="/Hero">Sign Up</NavLink>
          </CustomButton>
          <CustomButton>
            <NavLink href={isAuthenticated ? "/user" : "/login"}>

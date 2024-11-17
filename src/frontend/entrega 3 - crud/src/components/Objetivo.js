@@ -45,7 +45,7 @@ const ImageContainer = styled.div`
   justify-content: center;
 
   img {
-    max-width: 900px;
+    max-width: 700px;
     height: auto;
     border-radius: 50px;
   }

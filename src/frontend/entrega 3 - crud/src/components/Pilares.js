@@ -10,7 +10,7 @@ const ContainerExterno = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 40px auto;
   min-height: 700px;
-  max-width: 1700px;
+  max-width: 1320px;
   display: flex;
   flex-direction: column;
   align-items: center;
