@@ -39,37 +39,65 @@ Projeto5
 │   │   ├── facebook.png
 │   │   ├── gmail.png
 │   │   ├── linkedin.png
-│   │   ├── logo.png
+│   │   └── logo.png
+│   ├── /entrega1 - html, css e js # Primeira entrega com arquivos HTML, CSS e JavaScript básicos
 │   │   ├── index.html
 │   │   ├── script.js
 │   │   └── style.css
-│   ├── /React               # Diretório específico para o desenvolvimento em React
-│   │   ├── /public          # Arquivos públicos
-│   │   └── /src             # Código-fonte do React
-│   │       ├── /components  # Componentes React
-│   │       │   ├── /img     # Imagens usadas nos componentes React
-│   │       │   ├── AboutUs.js
+│   ├── /entrega2 - react         # Segunda entrega com desenvolvimento em React
+│   │   ├── /public               # Arquivos públicos
+│   │   └── /src                  # Código-fonte do React
+│   │       ├── /components       # Componentes React
 │   │       │   ├── Footer.js
-│   │       │   ├── Footer.css
 │   │       │   ├── Header.js
-│   │       │   ├── Header.css
 │   │       │   ├── Hero.js
 │   │       │   ├── Home.js
-│   │       │   ├── News.js
-│   │       │   ├── Sucess.js
-│   │       │   └── Tools.js
+│   │       │   ├── InvestorQuiz.js
+│   │       │   ├── Login.js
+│   │       │   ├── MaxMinCalculator.js
+│   │       │   ├── Objetivo.js
+│   │       │   ├── Pilares.js
+│   │       │   ├── Tips.js
+│   │       │   ├── Tools.js
+│   │       │   └── UserData.js
 │   │       ├── App.js
 │   │       ├── App.css
-│   │       ├── App.test.js
 │   │       ├── index.css
-│   │       ├── index.js
-│   │       ├── logo.svg
-│   │       ├── reportWebVitals.js
-│   │       └── setupTests.js
-│   ├── .gitignore           # Arquivo gitignore
-│   ├── package-lock.json     # Dependências do projeto
-│   ├── package.json          # Arquivo de configuração do projeto e dependências
-│   └── README.md             # Arquivo de documentação (você está aqui).
+│   │       └── index.js
+│   ├── /entrega3 - crud          # Terceira entrega com implementação de CRUD
+│   │   ├── /backend              # Backend da aplicação com CRUD
+│   │   │   ├── config            # Configurações e variáveis de ambiente
+│   │   │   ├── auth              # Middleware e lógica de autenticação
+│   │   │   ├── server.js         # Configuração do servidor
+│   │   │   ├── app.js            # Ponto de entrada da API
+│   │   │   └── .env              # Variáveis de ambiente
+│   │   ├── /public               # Arquivos públicos
+│   │   └── /src                  # Código-fonte do React
+│   │       ├── /components       # Componentes React
+│   │       │   ├── AboutUs.js
+│   │       │   ├── Banner.js
+│   │       │   ├── Button.js
+│   │       │   ├── Footer.js
+│   │       │   ├── Header.js
+│   │       │   ├── Hero.js
+│   │       │   ├── Home.js
+│   │       │   ├── InvestorQuiz.js
+│   │       │   ├── Login.js
+│   │       │   ├── MaxMinCalculator.js
+│   │       │   ├── Objetivo.js
+│   │       │   ├── Pilares.js
+│   │       │   ├── Tips.js
+│   │       │   ├── Tools.js
+│   │       │   ├── UserData.js
+│   │       │   └── Sucess.js
+│   │       ├── App.js
+│   │       ├── App.css
+│   │       ├── index.css
+│   │       └── index.js
+│   ├── .gitignore               # Arquivo gitignore
+│   ├── package-lock.json        # Dependências do projeto
+│   ├── package.json             # Arquivo de configuração do projeto e dependências
+│   └── README.md                # Arquivo de documentação (você está aqui)
 
 
 ```
@@ -89,9 +117,9 @@ Encontre o index.html na pasta executáveis e execute-o como uma página WEB. Ou
 Pré-requisitos
 
 **Certifique-se de ter as seguintes ferramentas instaladas em sua máquina:**
-
 Node.js
 npm (geralmente instalado junto com o Node.js)
+MySQL (para o banco de dados)
 
 **Instalando as dependências:**
 
@@ -111,9 +139,44 @@ npm install
 
  npm start
 
-**Para executar o test-suite automatizado e verificar se o projeto está funcionando corretamente, utilize o comando:**
+**Configurando o banco de Dados**
+Configuração do Banco de Dados
+Inicie o servidor MySQL e abra o cliente MySQL ou uma interface gráfica (como MySQL Workbench) para executar os comandos.
 
-npm test
+*Crie o banco de dados:*
+CREATE DATABASE finaq_db;
+USE finaq_db;
+*Crie as tabelas necessárias:*
+CREATE TABLE Usuario (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    telefone VARCHAR(20),
+    data_nasc DATE,
+    senha VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE QuizPerfilInvestidor (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    data_respostas DATE,
+    perfil_calculado VARCHAR(50),
+    usuario_id INT,
+    FOREIGN KEY (usuario_id) REFERENCES Usuario(id)
+);
+
+*Configuração do arquivo .env:*
+
+Crie um arquivo .env na pasta backend com as configurações de conexão ao banco de dados MySQL:
+DB_HOST=localhost
+DB_USER=seu_usuario
+DB_PASSWORD=sua_senha
+DB_NAME=finaq_db
+
+**Inicie o servidor backend:**
+No diretório backend do projeto, execute:
+node app.js
+
+
 
 Observações para múltiplas plataformas
 
