@@ -36,7 +36,7 @@ Projeto5
 │
 ├── /frontend                # Diretório principal do frontend
 │   ├── /img                 # Imagens do frontend (ícones de redes sociais, logotipo)
-│   │   ├── facebook.png
+│   │   ├──
 │   │   ├── gmail.png
 │   │   ├── linkedin.png
 │   │   └── logo.png
